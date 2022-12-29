@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use IBekzod\Uploader\Http\Controllers\UploadController;
 /*
 |--------------------------------------------------------------------------
 | API Routes

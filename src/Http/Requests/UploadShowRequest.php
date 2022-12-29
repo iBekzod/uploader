@@ -16,7 +16,7 @@ class UploadShowRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return config('uploader.authorize', false);
     }
 
     /**
