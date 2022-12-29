@@ -1,0 +1,53 @@
+{
+    "name": "ibekzod/uploader",
+    "description": "Uploader with database integration and dynamic file structure",
+    "keywords": [
+        "ibekzod",
+        "uploader"
+    ],
+    "homepage": "https://github.com/ibekzod/uploader",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Bekzod Erkinov",
+            "email": "erkinovbegzod.45@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "IBekzod\\Uploader\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "IBekzod\\Uploader\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "IBekzod\\Uploader\\UploaderServiceProvider"
+            ],
+            "aliases": {
+                "Uploader": "IBekzod\\Uploader\\UploaderFacade"
+            }
+        }
+    }
+}
