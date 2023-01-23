@@ -7,7 +7,7 @@ use IBekzod\Uploader\Exceptions\UploadNotFoundException;
 
 class Uploader
 {
-    protected Upload $model;
+    protected Upload $upload;
     public function getUpload()
     {
         if (!isset($this->upload)) {
