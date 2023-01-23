@@ -3,7 +3,8 @@
     "description": "Uploader with database integration and dynamic file structure",
     "keywords": [
         "ibekzod",
-        "uploader"
+        "uploader",
+        "laravel"
     ],
     "homepage": "https://github.com/ibekzod/uploader",
     "license": "MIT",
@@ -16,8 +17,8 @@
         }
     ],
     "require": {
-        "php": "^7.4|^8.0",
-        "illuminate/support": "^8.0"
+        "php": ">=7.4.0",
+        "illuminate/support": "^8.0|^9.0"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
