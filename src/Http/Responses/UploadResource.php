@@ -18,7 +18,7 @@ class UploadResource extends JsonResource
         return [
             'id' => $this->id,
             'type' => $this->type,
-            'path' => $this->path,
+            'path' => $this->file_path,
             'name' => $this->name,
             'size' => $this->size,
             'extension' => $this->extension,
