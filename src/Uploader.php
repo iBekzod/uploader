@@ -44,7 +44,6 @@ class Uploader
         }
         $upload = new Upload;
         $upload->type = $type;
-        $upload->user_id = auth()->id();
         $upload->path = $attachment->store($file_path);
         $upload->name = $attachment->getClientOriginalName();
         $upload->size = $attachment->getSize();

@@ -53,8 +53,8 @@ class UploadController extends Controller
     public function store(UploadStoreRequest $request)
     {
         try {
-            $data = $request->validated();
-            $upload = $this->uploader->uploadAttachment($data->attachment, $request->type)->getUpload();
+            $request->validated();
+            $upload = $this->uploader->uploadAttachment($request->file('attachment'), $request->type)->getUpload();
         } catch (UploadNotFoundException $th) {
             return $this->error($th->getMessage(), 404);
         } catch (\Exception $th) {
