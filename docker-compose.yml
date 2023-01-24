@@ -1,0 +1,47 @@
+version: "3.8"
+
+networks:
+    nginx_network:
+        external: true
+    internal:
+
+services:
+    uploader-app:
+        image: adhocore/phpfpm:7.4
+        container_name: uploader-app
+        working_dir: /app
+        restart: always
+        networks:
+            - internal
+            - nginx_network
+        volumes:
+            - '.:/app'
+            - './docker/php/overrides.ini:/etc/php/8.1/fpm/conf.d/99-overrides.ini'
+    uploader-nginx:
+        image: nginx:alpine
+        container_name: uploader-nginx
+        restart: always
+        working_dir: /app
+        networks:
+            - internal
+            - nginx_network
+        ports:
+            - "9060:80"
+        volumes:
+            - .:/app
+            - ./docker/nginx/uploader.conf:/etc/nginx/conf.d/default.conf
+        depends_on:
+            - uploader-app
+    uploader-composer:
+        image: composer:latest
+        container_name: uploader-composer
+        working_dir: /app
+        command: update --ignore-platform-reqs
+        volumes:
+            - .:/app
+        restart: on-failure
+        depends_on:
+            - uploader-app
+volumes:
+  uploader-database:
+    driver: local

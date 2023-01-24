@@ -35,13 +35,13 @@ class Uploader
         return $this;
     }
 
-    public function uploadAttachment($attachment, $type = 'attachments')
+    public function uploadAttachment($attachment, $type = 'file')
     {
-        $public_path = public_path() . DIRECTORY_SEPARATOR;
+        // $public_path = public_path() . DIRECTORY_SEPARATOR;
         $file_path = 'uploads' . DIRECTORY_SEPARATOR . $type;
-        if (!is_dir($public_path . $file_path)) {
-            mkdir($public_path . $file_path, 0777, true);
-        }
+        // if (!is_dir($public_path . $file_path)) {
+        //     mkdir($public_path . $file_path, 0777, true);
+        // }
         $upload = new Upload;
         $upload->type = $type;
         $upload->path = $attachment->store($file_path);
