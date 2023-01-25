@@ -4,6 +4,7 @@
  * You can place your custom package configuration in here.
  */
 return [
+    'connection'=>config('database.default'),
     'authorize' => false,
     'rules' =>[
         'mimes' => 'jpg,jpeg,png,svg,webp,gif,mp4,mpg,mpeg,avi,mov,flv,swf,mkv',

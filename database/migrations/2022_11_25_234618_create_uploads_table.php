@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('uploads', function (Blueprint $table) {
+        Schema::connection(config('uploader.connection'))->create('uploads', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('relation_id')->index()->default(0);
             $table->string('relation_type')->default('file');
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('uploads');
+        Schema::connection(config('uploader.connection'))->dropIfExists('uploads');
     }
 };
