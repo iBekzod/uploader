@@ -17,11 +17,11 @@ class UploadResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'type' => $this->type,
+            // 'type' => $this->type,
             'path' => $this->file_path,
-            'name' => $this->name,
-            'size' => $this->size,
-            'extension' => $this->extension,
+            // 'name' => $this->name,
+            // 'size' => $this->size,
+            // 'extension' => $this->extension,
         ];
     }
 }
